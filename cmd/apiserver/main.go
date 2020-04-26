@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/IFtech-A/http_rest_api/internal/apiserver"
+	"github.com/IFtech-A/http_rest_api/internal/app/apiserver"
 	"gopkg.in/yaml.v2"
 )
 
@@ -35,6 +35,6 @@ func main() {
 	s := apiserver.New(config)
 
 	if err := s.Start(); err != nil {
-		log.Fatal("Error on start")
+		log.Fatalf("Error on start %v", config.Store.DatabaseURL)
 	}
 }
