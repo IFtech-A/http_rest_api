@@ -29,6 +29,15 @@ func TestUser_Validate(t *testing.T) {
 			},
 			isValid: false,
 		},
+		{
+			name: "short password",
+			u: func() *model.User {
+				u := model.TestUser(t)
+				u.Password = "123456"
+				return u
+			},
+			isValid: false,
+		},
 	}
 
 	for _, tc := range testCases {

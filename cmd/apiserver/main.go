@@ -32,9 +32,7 @@ func main() {
 		log.Fatal("Error while parsing config file")
 	}
 
-	s := apiserver.New(config)
-
-	if err := s.Start(); err != nil {
+	if err := apiserver.Start(config); err != nil {
 		log.Fatalf("Error on start %v", config.Store.DatabaseURL)
 	}
 }
